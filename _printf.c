@@ -1,9 +1,11 @@
 #include <stdarg.h>
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 /**
  * _printf - produces output according to a format
- * @format - string to print
+ * @format: string to print
  *
  * Return: count on success
  */
@@ -12,7 +14,7 @@ int _printf(const char *format, ...)
 {
 	int count;
 	char *str;
-	char s;
+	char c;
 	va_list print;
 
 	/*initialize argument list*/
@@ -26,19 +28,23 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				s = va_arg(print, int);
-				_putchar(s);
+				c = va_arg(print, int);
+				_putchar(c);
 			}
-			/*move to the next character*/
-			format++;
 			if (*format == 's')
 			{
 				str = va_arg(print, char *);
 				_putstring(str);
 			}
-			format++;
+			if (*format == '%')
+			{
+				_putchar(*format);
+			}
 		}
-		_putchar(*format);
+		else
+		{
+			_putchar(*format);
+		}
 		count++;
 		format++;
 	}

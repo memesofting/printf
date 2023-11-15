@@ -1,6 +1,13 @@
 #include "main.h"
 #include <string.h>
 
+/**
+ * _putstring - prints a string to output
+ * @s: pointer to string
+ *
+ * Return: 0 on success
+ */
+
 int _putstring(char *s)
 {
 	int i;
@@ -13,5 +20,4 @@ int _putstring(char *s)
 		chr = s[i];
 		_putchar(chr);
 	}
-	_putchar('\n');
 }
