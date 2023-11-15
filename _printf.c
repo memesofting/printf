@@ -11,6 +11,7 @@
 int _printf(const char *format, ...)
 {
 	int count;
+	char *str;
 	char s;
 	va_list print;
 
@@ -28,6 +29,13 @@ int _printf(const char *format, ...)
 				s = va_arg(print, int);
 				_putchar(s);
 			}
+			/*move to the next character*/
+			format++;
+			if (*format == 's')
+			{
+				str = va_arg(print, char *);
+				_putstring(str);
+			}
 			format++;
 		}
 		_putchar(*format);
@@ -36,13 +44,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(print);
 	return (count);
-}
-
-int main(void)
-{
-	_printf("ready");
-	_printf("\n");
-	_printf("ready %c", 40);
-	_printf("\n");
-	return (0);
 }
