@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		len = _strlen(format);
 		if (*format == '%')
 		{
-			/*conditions for identifiers*/
+			/*conditions for specifiers*/
 			format++;
 			if (*format == 'c')
 			{
@@ -43,13 +43,15 @@ int _printf(const char *format, ...)
 			{
 				_putchar(*format);
 			}
+			/*move to next element*/
+			format++;
 		}
 		else
 		{
+			count++;
 			_putchar(*format);
+			format++;
 		}
-		count++;
-		format++;
 	}
 	va_end(print);
 	return (len);
