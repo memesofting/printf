@@ -13,6 +13,7 @@
 int _printf(const char *format, ...)
 {
 	int count;
+	int len;
 	char *str;
 	char c;
 	va_list print;
@@ -23,8 +24,10 @@ int _printf(const char *format, ...)
 	count = 0;
 	while (*format != '\0')
 	{
+		len = _strlen(format);
 		if (*format == '%')
 		{
+			/*conditions for identifiers*/
 			format++;
 			if (*format == 'c')
 			{
@@ -49,5 +52,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(print);
-	return (count);
+	return (len);
 }
