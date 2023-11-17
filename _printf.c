@@ -4,7 +4,7 @@
  * _printf - produces output according to a format
  * @format: string to print
  *
- * Return: count on success
+ * Return: number of characters on success
  */
 
 int _printf(const char *format, ...)
