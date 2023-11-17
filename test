@@ -18,6 +18,7 @@ int main(void)
 	_printf("ready %c\n", 'b');
 	_printf("%s\n", "mummy yo!");
 	_printf("30%% of the deal\n");
+	_printf("dd%gkk");
 	_printf("Length: %d", len);
 	return (0);
 }
