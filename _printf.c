@@ -1,8 +1,4 @@
-#include <stdarg.h>
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
 
 /**
  * _printf - produces output according to a format
@@ -13,44 +9,41 @@
 
 int _printf(const char *format, ...)
 {
-	int count;
-	int len;
-	char *str;
-	char c;
-	va_list print;
-
-	/*initialize argument list*/
-	va_start(print, format);
-	/*iterate through the string 'format' and print elements*/
-	count = 0;
-	while (*format != '\0')
-	{
-		len = _strlen(format);
-		if (*format == '%')
-		{
-			/*conditions for specifiers*/
-			format++;
-			if (*format == 'c')
-			{
-				c = va_arg(print, int);
-				_putchar(c);
-			}
-			if (*format == 's')
-			{
-				str = va_arg(print, char *);
-				_putstring(str);
-			}
-			if (*format == '%')
-			{
-				_putchar(*format);
-			}
-			/*move to next element*/
-			format++;
-		}
-		_putchar(*format);
-		count++;
-		format++;
+	spec sp[] = {
+		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_percent}
 	}
-	va_end(print);
+
+	va_list args;
+	int i;
+	int j;
+	int len;
+
+	i = 0;
+	len = 0;
+	va_start(args, format);
+	/*check if format is null with first and second element of format for % sign*/
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+Here:
+	/*loop through array of struct spec to determine specifier*/
+	while (format[i] != '\0')
+	{
+		j = 2;
+		while (j >= 0)
+		{
+			/*check if format element match with a specific specifier*/
+			if (sp[j].c[0] == format[i] && sp[j].c[1] == format(i + 1))
+			{
+				len  = len + sp[j].func(args);
+				i = i + 2;
+				goto Here;
+			}
+			j--;
+		}
+		_printc(format[i]);
+		i++;
+		len++
+	}
+	va_end(args);
 	return (len);
 }

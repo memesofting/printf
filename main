@@ -8,7 +8,6 @@
 /**
  * struct format - struct to handle specifier
  * @c: specifier
- *
  */
 
 typedef struct format
@@ -18,11 +17,10 @@ typedef struct format
 } spec;
 
 int _putchar(char c);
-in _print_perc(void);
 int _printc(va_list input);
-void _putstring(va_list input);
+void _putstring(char *s);
 int _strlen(const char *s);
-/*void _putnum(char n);*/
+void _putnum(char n);
 int _printf(const char *format, ...);
 
 #endif

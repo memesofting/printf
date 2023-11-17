@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _putnum - prints numbers
@@ -8,10 +7,14 @@
  * Return: 0 on success
  */
 
-void _putnum(char n)
+int _putnum(va_list input)
 {
+	char n;
+	
+	n = va_arg(input, int);
 	for (n = '0'; n <= '9'; n++)
 	{
 		_putchar(n);
 	}
+	return (0);
 }

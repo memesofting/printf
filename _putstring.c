@@ -3,21 +3,38 @@
 
 /**
  * _putstring - prints a string to output
- * @s: pointer to string
+ * @input: argument
  *
  * Return: void on success
  */
 
-void _putstring(char *s)
+int _putstring(va_list input)
 {
+	char *s;
 	int i;
 	int len;
 	char chr;
 
-	len = _strlen(s);
-	for (i = 0; i < len; i++)
+	s = va_arg(input, char *);
+	if (s == NULL)
 	{
-		chr = s[i];
-		_putchar(chr);
+		s = "(null)";
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+		{
+			chr = s[i];
+			_putchar(chr);
+		}
+		return (len);
+	}
+	else
+	{
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+		{
+			chr = s[i];
+			putchar(chr);
+		}
+		return (len);
 	}
 }
