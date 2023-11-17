@@ -33,7 +33,7 @@ int _putstring(va_list input)
 		for (i = 0; i < len; i++)
 		{
 			chr = s[i];
-			putchar(chr);
+			_putchar(chr);
 		}
 		return (len);
 	}

@@ -8,19 +8,20 @@
 /**
  * struct format - struct to handle specifier
  * @c: specifier
+ * @func: function pointer
  *
  */
 
 typedef struct format
 {
 	char *c;
-	(*func)();
+	int (*func)();
 } spec;
 
 int _putchar(char c);
-in _print_perc(void);
+int _print_perc(void);
 int _printc(va_list input);
-void _putstring(va_list input);
+int _putstring(va_list input);
 int _strlen(const char *s);
 /*void _putnum(char n);*/
 int _printf(const char *format, ...);

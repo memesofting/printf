@@ -10,8 +10,8 @@
 int _printf(const char *format, ...)
 {
 	spec sp[] = {
-		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_percent}
-	}
+		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_perc}
+	};
 
 	va_list args;
 	int i;
@@ -32,7 +32,7 @@ Here:
 		while (j >= 0)
 		{
 			/*check if format element match with a specific specifier*/
-			if (sp[j].c[0] == format[i] && sp[j].c[1] == format(i + 1))
+			if (sp[j].c[0] == format[i] && sp[j].c[1] == format[i + 1])
 			{
 				len  = len + sp[j].func(args);
 				i = i + 2;
@@ -40,9 +40,9 @@ Here:
 			}
 			j--;
 		}
-		_printc(format[i]);
+		_putchar(format[i]);
 		i++;
-		len++
+		len++;
 	}
 	va_end(args);
 	return (len);
