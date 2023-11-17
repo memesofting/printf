@@ -1,7 +1,4 @@
-#include <stdarg.h>
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * _printf - produces output according to a format
@@ -32,7 +29,7 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				c = va_arg(print, int);
-				_putchar(c);
+				_printc(c);
 			}
 			if (*format == 's')
 			{
@@ -41,12 +38,12 @@ int _printf(const char *format, ...)
 			}
 			if (*format == '%')
 			{
-				_putchar(*format);
+				_printc(*format);
 			}
 			/*move to next element*/
 			format++;
 		}
-		_putchar(*format);
+		_printc(*format);
 		count++;
 		format++;
 	}
