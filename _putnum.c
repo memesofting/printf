@@ -3,6 +3,7 @@
 
 /**
  * _putnum - prints numbers
+ * @n: number to be printed
  *
  * Return: 0 on success
  */
