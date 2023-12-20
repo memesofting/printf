@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	/*check if format is null with first and second element of format for % sign*/
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-Here:
+/*Here:*/
 	/*loop through array of struct spec to determine specifier*/
 	while (format[i] != '\0')
 	{
@@ -32,11 +32,11 @@ Here:
 		while (j >= 0)
 		{
 			/*check if format element match with a specific specifier*/
-			if (sp[j].c[0] == format[i] && sp[j].c[1] == format[i + 1])
+			if (format[i] == sp[j].c[0] && format[i + 1] == sp[j].c[1])
 			{
 				len  = len + sp[j].func(args);
 				i = i + 2;
-				goto Here;
+				/*goto Here;*/
 			}
 			j--;
 		}
