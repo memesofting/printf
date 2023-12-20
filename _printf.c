@@ -10,7 +10,8 @@
 int _printf(const char *format, ...)
 {
 	spec sp[] = {
-		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_perc}
+		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_perc},
+		{"%d", _putdec}, {"%i", _putint}
 	};
 
 	va_list args;
@@ -24,11 +25,11 @@ int _printf(const char *format, ...)
 	/*check if format is null with first and second element of format for % sign*/
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-/*Here:*/
+Here:
 	/*loop through array of struct spec to determine specifier*/
 	while (format[i] != '\0')
 	{
-		j = 2;
+		j = 4;
 		while (j >= 0)
 		{
 			/*check if format element match with a specific specifier*/
@@ -36,7 +37,7 @@ int _printf(const char *format, ...)
 			{
 				len  = len + sp[j].func(args);
 				i = i + 2;
-				/*goto Here;*/
+				goto Here;
 			}
 			j--;
 		}

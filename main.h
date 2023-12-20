@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <limits.h>
 /**
  * struct format - struct to handle specifier
  * @c: specifier
@@ -23,7 +23,9 @@ int _print_perc(void);
 int _printc(va_list input);
 int _putstring(va_list input);
 int _strlen(const char *s);
-/*void _putnum(char n);*/
+int _putnum(va_list input);
+int _putint(va_list input);
+int _putdec(va_list input);
 int _printf(const char *format, ...);
 
 #endif

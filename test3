@@ -8,11 +8,12 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len, len2, total;
 	len = _printf("%c", 'S');
 	len2 = printf("%c", 'S');
 	printf("%d\n", len);                                  printf("%d\n", len2);
-	fflush(stdout);
+	total = fflush(stdout);
+	printf("%d\n", total);
 	if (len != len2)
 	{
 		printf("Lengths differ.\n");

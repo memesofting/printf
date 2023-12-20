@@ -8,14 +8,22 @@
  */
 int main(void)
 {
+	int len, len2;
+
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
+	len = _printf("String:[%s]\n", "I am a string !");
+	len2 = printf("String:[%s]\n", "I am a string !");
 	_printf("Percent:[%%]\n");
 	printf("Percent:[%%]\n");
 	_printf("Let's try to printf a simple sentence.\n");
 	_printf("%c", 'S');
 	_printf("A char inside a sentence: %c. Did it work?\n", 'F');
+	printf("%d\n", len);
+	printf("%d\n", len2);
+
+	_printf("Character:[%d]\n", 1024);
+	printf("Character:[%i]\n", 1024);
+	_printf("Character:[%d]\n", INT_MAX);
 	return (0);
 }
