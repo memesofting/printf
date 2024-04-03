@@ -9,5 +9,5 @@
 int _print_perc(void)
 {
 	_putchar(37);
-	return (0);
+	return (1);
 }
