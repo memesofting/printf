@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 {
 	spec sp[] = {
 		{"%c", _printc}, {"%s", _putstring}, {"%%", _print_perc},
-		{"%d", _putdec}, {"%i", _putint}
+		{"%d", _putdec}, {"%i", _putint}, {"%u", _putunsigned},
+		{"%b", _putbinary}
 	};
 
 	va_list args;
@@ -29,7 +30,7 @@ Here:
 	/*loop through array of struct spec to determine specifier*/
 	while (format[i] != '\0')
 	{
-		j = 4;
+		j = 6;
 		while (j >= 0)
 		{
 			/*check if format element match with a specific specifier*/

@@ -26,6 +26,8 @@ int _strlen(const char *s);
 int _putnum(va_list input);
 int _putint(va_list input);
 int _putdec(va_list input);
+int _putunsigned(va_list args);
+int _putbinary(va_list val);
 int _printf(const char *format, ...);
 
 #endif
