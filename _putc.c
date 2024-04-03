@@ -12,5 +12,5 @@ int _printc(va_list input)
 
 	c = va_arg(input, int);
 	_putchar(c);
-	return (0);
+	return (1);
 }
